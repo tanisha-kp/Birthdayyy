@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sarath!♥ </title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-cream: #fbf6ec;
+            --color-memories: #fcaeb5;
+            --color-songs: #aeddf2;
+            --color-letter: #f9896b;
+            --color-secret: #fbe69d;
+            --text-dark: #63264a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Simulated Mobile Screen Dimension */
+        .phone-container {
+            width: 375px;
+            height: 812px;
+            background-color: var(--bg-cream);
+            position: relative;
+            overflow: hidden;
+            border-radius: 40px;
+            border: 8px solid #222;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        /* --- STAGE 1: Welcome Screen --- */
+        .welcome-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #fdf8f5, #fceae6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 50;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .welcome-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3.2rem;
+            color: #921847;
+            margin-bottom: 10px;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            color: #b56b82;
+            font-weight: 600;
+            animation: breathe 2s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.06); opacity: 1; }
+        }
+
+        /* --- STAGE 2: Main Dashboard Grid --- */
+        .dashboard {
+            width: 100%;
+            height: 100%;
+            padding: 45px 22px 30px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.8rem;
+            color: #921847;
+            line-height: 1.1;
+        }
+
+        .header-divider {
+            width: 90px;
+            height: 4px;
+            background: radial-gradient(circle, #921847 0%, transparent 80%);
+            margin: 8px auto 0 auto;
+        }
+
+        /* The 4-Section Grid Container */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 16px;
+            width: 100%;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        /* Grid Item Card Styling matching image */
+        .card {
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 10px;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+            position: relative;
+        }
+
+        .card span {
+            font-size: 1.5rem;
+            margin-top: 8px;
+            display: block;
+            opacity: 0.9;
+        }
+
+        /* Unique Color & Class Setups */
+        .card-memories { background-color: var(--color-memories); top: 0; left: 0; }
+        .card-songs { background-color: var(--color-songs); top: 0; right: 0; }
+        .card-letter { background-color: var(--color-letter); bottom: 0; left: 0; }
+        .card-secret { background-color: var(--color-secret); bottom: 0; right: 0; color: #ccb160; }
+
+        /* Exploding/Dividing Screen Animation Trigger */
+        .phone-container.split .card-memories { transform: translate(-120%, -120%); opacity: 0; }
+        .phone-container.split .card-songs { transform: translate(120%, -120%); opacity: 0; }
+        .phone-container.split .card-letter { transform: translate(-120%, 120%); opacity: 0; }
+        .phone-container.split .card-secret { transform: translate(120%, 120%); opacity: 0; }
+
+        /* --- STAGE 3: Inner Feature Pages --- */
+        .panel-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-cream);
+            z-index: 25;
+            display: none;
+            flex-direction: column;
+            padding: 70px 24px 30px 24px;
+        }
+
+        .panel-page.view-active {
+            display: flex;
+        }
+
+        .panel-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .dismiss-btn {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Section A: Swipeable Photo Gallery Setup */
+        .swiper {
+            width: 100%;
+            height: 80%;
+            border-radius: 20px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--color-letter) !important;
+        }
+
+        /* Section B: Track Playlists Styles */
+        .track-scroller {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            overflow-y: auto;
+            max-height: 85%;
+        }
+
+        .track-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 18px 20px;
+            border-radius: 18px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: background 0.2s;
+        }
+
+        .track-card:active {
+            background: #f0f0f0;
+        }
+
+        .track-icon {
+            color: #55acee;
+            font-size: 1.2rem;
+        }
+
+        /* Section C: Private Letter Frame */
+        .letter-frame {
+            width: 100%;
+            height: 82%;
+            overflow-y: auto;
+            border-radius: 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+        }
+
+        .letter-frame img {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+        }
+
+                /* --- BUTTERFLY EFFECT --- */
+        .butterfly {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #ff4d6d;
+            border-radius: 50% 50% 0 50%;
+            transform: rotate(-45deg);
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.8;
+        }
+        .butterfly::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #ff4d6d;
+            border-radius: 50% 50% 50% 0;
+            top: -6px;
+            left: 6px;
+        }
+	/* Updated Trivia Styles */
+        .quiz-container {
+            width: 100%;
+            height: 80%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-card {
+            background: white;
+            width: 100%;
+            padding: 25px 20px;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            display: none;
+            flex-direction: column;
+            border: 2px solid #fbe69d;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .quiz-card.active-q {
+            display: flex;
+        }
+
+        .quiz-progress {
+            font-size: 0.8rem;
+            color: #ccb160;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .quiz-question {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .opt-btn {
+            background: #fffbf0;
+            border: 1.5px solid #fbe69d;
+            padding: 14px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        /* Subtle visual selection feedback before moving forward */
+        .opt-btn.selected-glow {
+            background-color: #e3f2fd !important;
+            border-color: #90caf9 !important;
+        }
+
+        /* Big Final Interactive Checking Button */
+        .check-answers-btn {
+            background: linear-gradient(135deg, #f9896b 0%, #ff4d6d 100%);
+            border: none;
+            color: white;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 16px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(249, 137, 107, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .check-answers-btn:active {
+            transform: scale(0.97);
+        }
+
+        .win-icon {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Confetti Elements */
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            z-index: 99;
+            pointer-events: none;
+            animation: rainConfetti 3.5s linear forwards;
+        }
+
+        @keyframes rainConfetti {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(830px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-container" id="appFrame">
+        
+        <div class="welcome-screen" id="welcomePortal" onclick="handleScreenUnlock(event)">
+            <div class="welcome-title">Happy birthday Sarath ❤️</div>
+            <div class="welcome-subtitle">Touch to open</div>
+        </div>
+
+        <div class="dashboard" onclick="spawnHeartsWave(event)">
+            <div class="dashboard-header">
+                <h1>Happy Birthday<br>Sarath!</h1>
+                <div class="header-divider"></div>
+            </div>
+
+            <div class="grid-layout">
+                <div class="card card-memories" onclick="launchSection('memoriesUI')">
+                    Our Memories <span>♥</span>
+                </div>
+                <div class="card card-songs" onclick="launchSection('songsUI')">
+                    Songs For You <span>♫</span>
+                </div>
+                <div class="card card-letter" onclick="launchSection('letterUI')">
+                    A Letter For You <span>✉</span>
+                </div>
+                <div class="card card-secret" onclick="launchSection('secretUI')">
+                    Secret <span>🔒</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-page" id="memoriesUI">
+            <button class="dismiss-btn" onclick="hideSection('memoriesUI')">← Back</button>
+            <h2 class="panel-title">Our Memories</h2>
+            
+            <div class="swiper mainSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://i.ibb.co/93HkrWBL/1000140793.jpg" alt="Our Day 1"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/4ZSfN23m/IMG-20240115-WA0133.jpg" alt="Our Day 2"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/pv8384W4/IMG-20240116-WA0001.jpg" alt="Our Day 3"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/KchKxw8X/IMG-20240128-WA0006.jpg" alt="Our Day 4"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/XkzPFJjG/IMG-20240129-WA0218.jpg" alt="Our Day 5"></div>
+		    <div class="swiper-slide"><img src="https://i.ibb.co/Z6sy6x5J/IMG-20240131-WA0009.jpg" alt="Our Day 1"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/Q79DXb4s/IMG-20240630-WA0388.jpg" alt="Our Day 2"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/XfqHnynb/IMG-20240808-WA0073.jpg" alt="Our Day 3"></div>
+                    <div class="swiper-slide"><img src="
+https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 4"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/F45Sq33x/IMG-20240810-WA0024.jpg" alt="Our Day 5"></div>
+                    </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="panel-page" id="songsUI">
+            <button class="dismiss-btn" onclick="hideSection('songsUI')">← Back</button>
+            <h2 class="panel-title">Songs For You</h2>
+            <div class="track-scroller">
+                <a href="https://www.youtube.com/watch?v=Il7Nv270zNk&list=RDIl7Nv270zNk&start_radio=1" target="_blank" class="song-item">
+                    <span>🎵 Cold/mess </span><span>▶</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=dWqb-WqbGh8&list=RDdWqb-WqbGh8&start_radio=1" target="_blank" class="song-item">
+                    <span>🎵 O Sanam </span><span>▶</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=LUgpPmj6nR8&list=RDLUgpPmj6nR8&start_radio=1" target="_blank" class="song-item">
+                    <span>🎵 Khat</span><span>▶</span>
+                </a>
+		<a href="https://www.youtube.com/watch?v=CbvjhmFVMvA&list=RDCbvjhmFVMvA&start_radio=1" target="_blank" class="song-item">
+                    <span>🎵 Thinking of you </span><span>▶</span>
+		</a>
+		<a href="https://www.youtube.com/watch?v=kz0kbFmB7FU&list=RDkz0kbFmB7FU&start_radio=1" target="_blank" class="song-item">
+                    <span>🎵 The last letter </span><span>▶</span>
+		</a>
+            </div>
+        </div>
+
+        <div class="panel-page" id="letterUI">
+            <button class="dismiss-btn" onclick="hideSection('letterUI')">← Back</button>
+            <h2 class="panel-title">A Letter For You</h2>
+            <div class="letter-frame">
+                <img src=https://i.ibb.co/PZ2Ynt7m/Kuttan-page-0001.jpg" alt="Personal Birthday Letter">
+            </div>
+        </div>
+
+        <div class="panel-page" id="secretUI">
+            <button class="dismiss-btn" onclick="hideSection('secretUI')">← Back</button>
+            <h2 class="panel-title">Our Trivia Quiz 🧩</h2>
+            
+            <div class="quiz-container">
+                <div class="quiz-card active-q" id="q1">
+                    <div class="quiz-progress">Question 1 of 5</div>
+                    <div class="quiz-question">Where was our very first picture/video together taken? 📸</div>
+                    <div class="quiz-options">
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q1')">Bangalore</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q1')">Office party</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q1')">Mhada</button>
+                    </div>
+                </div>
+
+                <div class="quiz-card" id="q2">
+                    <div class="quiz-progress">Question 2 of 5</div>
+                    <div class="quiz-question">What is my absolute favorite face feature of yours?</div>
+                    <div class="quiz-options">
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q2')">Your eyes</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q2')">Your Smile</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q2')">The way your eyes wrinkle when you laugh</button>
+                    </div>
+                </div>
+
+                <div class="quiz-card" id="q3">
+                    <div class="quiz-progress">Question 3 of 5</div>
+                    <div class="quiz-question">What is home for us? </div>
+                    <div class="quiz-options">
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q3')">Mhada</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q3')">Marine Drive</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q3')">wherever we are together is home</button>
+                    </div>
+                </div>
+
+                <div class="quiz-card" id="q4">
+                    <div class="quiz-progress">Question 4 of 5</div>
+                    <div class="quiz-question">What is my favorite home cooked meal that we've shared together?</div>
+                    <div class="quiz-options">
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q4')">Upma</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q4')">Dal Rice</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q4')">Rajma Rice</button>
+                    </div>
+                </div>
+
+                <div class="quiz-card" id="q5">
+                    <div class="quiz-progress">Question 5 of 5</div>
+                    <div class="quiz-question"> What was my favorite restaurant? 🤔</div>
+                    <div class="quiz-options">
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q5')">Kerala Hotel</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q5')">Without a doubt, Mcdonalds</button>
+                        <button class="opt-btn" onclick="selectAnswer(this, 'q5')">The place from where we used to eat kepsa</button>
+                    </div>
+                </div>
+
+                <div class="quiz-card" id="qVerify">
+                    <div class="win-icon">📝</div>
+                    <h3 style="color: #921847; margin-bottom: 15px; font-weight: 600; text-align: center;">You've completed the quiz!</h3>
+                    <button class="check-answers-btn" onclick="triggerConfettiReveal()">Check My Answers 🔍</button>
+                </div>
+
+                <div class="quiz-card" id="quizWin">
+                    <div class="win-icon">🎉🥳</div>
+                    <h3 style="color: #57cc99; margin-bottom: 15px; font-weight: 600; text-align: center;">Results are in!</h3>
+                    <p style="color: #63264a; font-size: 1.15rem; font-weight: bold; line-height: 1.5; text-align: center;">
+                        All correct because whatever you say beautiful 😘😉
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        // Initialize Swiper engine with smooth swipe settings
+        const swiper = new Swiper('.mainSwiper', {
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Trigger wave burst transition and remove welcome veil
+        function handleScreenUnlock(e) {
+            e.stopPropagation();
+            const portal = document.getElementById('welcomePortal');
+            
+            // Generate a heavy romantic burst of floating hearts up the viewport
+            for (let i = 0; i < 24; i++) {
+                setTimeout(() => {
+                    generateHeartNode(e.clientX || 180, e.clientY || 400);
+                }, i * 40);
+            }
+
+            portal.style.opacity = '0';
+            setTimeout(() => { portal.style.display = 'none'; }, 600);
+        }
+
+        // Tap tracking mechanism anywhere on screen triggers heart wave generator
+        function spawnHeartsWave(e) {
+            const bounds = document.getElementById('appFrame').getBoundingClientRect();
+            const localX = e.clientX - bounds.left;
+            const localY = e.clientY - bounds.top;
+
+            // Generate a multi-directional heart stream
+            for(let i = 0; i < 6; i++) {
+                generateHeartNode(localX, localY);
+            }
+        }
+
+        // Custom particle engine building and animating procedural floating heart nodes
+        function generateHeartNode(xpos, ypos) {
+            const frame = document.getElementById('appFrame');
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+            
+            // Variation pool for theme-accurate color presentation
+            const heartTypes = ['❤️', '💖', '💗', '💓', '💕'];
+            heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+            
+            // Random styling spreads for fluid paths
+            const driftOffset = (Math.random() * 60 - 30);
+            const rotationOffset = (Math.random() * 90 - 45) + 'deg';
+            
+            heart.style.left = (xpos + driftOffset) + 'px';
+            heart.style.top = ypos + 'px';
+            heart.style.setProperty('--rot', rotationOffset);
+            
+            frame.appendChild(heart);
+            
+            // Automatic DOM garbage collection clean up routines
+            setTimeout(() => { heart.remove(); }, 2800);
+        }
+
+        // Feature Navigation Engine
+        function launchSection(targetId) {
+            document.getElementById(targetId).classList.add('view-active');
+        }
+
+        function hideSection(targetId) {
+            document.getElementById(targetId).classList.remove('view-active');
+        }
+	// Tracking player advancement flows
+        function selectAnswer(button, currentQuestionId) {
+            // Highlight chosen item briefly
+            button.classList.add('selected-glow');
+
+            setTimeout(() => {
+                document.getElementById(currentQuestionId).classList.remove('active-q');
+                
+                if (currentQuestionId === 'q1') {
+                    document.getElementById('q2').classList.add('active-q');
+                } else if (currentQuestionId === 'q2') {
+                    document.getElementById('q3').classList.add('active-q');
+                } else if (currentQuestionId === 'q3') {
+                    document.getElementById('q4').classList.add('active-q');
+                } else if (currentQuestionId === 'q4') {
+                    document.getElementById('q5').classList.add('active-q');
+                } else if (currentQuestionId === 'q5') {
+                    document.getElementById('qVerify').classList.add('active-q');
+                }
+            }, 400);
+        }
+
+        // The Grand Reveal: Creates heavy streams of random colored falling confetti shapes
+        function triggerConfettiReveal() {
+            document.getElementById('qVerify').classList.remove('active-q');
+            document.getElementById('quizWin').classList.add('active-q');
+
+            const colors = ['#ff4d6d', '#ff758f', '#57cc99', '#38b000', '#3a86c8', '#ffbe0b', '#ff006e'];
+            const container = document.getElementById('appFrame');
+
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const piece = document.createElement('div');
+                    piece.classList.add('confetti-piece');
+                    
+                    // Corrected color randomizer logic
+                    piece.style.left = Math.random() * 365 + 'px';
+                    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    piece.style.width = (Math.random() * 6 + 6) + 'px';
+                    piece.style.height = (Math.random() * 12 + 6) + 'px';
+                    piece.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+                    
+                    container.appendChild(piece);
+                    
+                    setTimeout(() => { piece.remove(); }, 3500);
+                }, i * 15);
+            }
+        }
+    </script>
+</body>
+</html>
