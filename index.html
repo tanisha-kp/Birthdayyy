@@ -36,15 +36,15 @@
             overflow: hidden;
         }
 
-        /* Simulated Mobile Screen Dimension */
+        /* Simulated iPhone 13 Screen Dimension Setup */
         .phone-container {
-            width: 375px;
-            height: 812px;
+            width: 390px;
+            height: 844px;
             background-color: var(--bg-cream);
             position: relative;
             overflow: hidden;
-            border-radius: 40px;
-            border: 8px solid #222;
+            border-radius: 44px;
+            border: 9px solid #222;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
         }
 
@@ -90,7 +90,7 @@
         .dashboard {
             width: 100%;
             height: 100%;
-            padding: 45px 22px 30px 22px;
+            padding: 55px 24px 35px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -98,18 +98,18 @@
 
         .dashboard-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .dashboard-header h1 {
             font-family: 'Caveat', cursive;
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: #921847;
             line-height: 1.1;
         }
 
         .header-divider {
-            width: 90px;
+            width: 95px;
             height: 4px;
             background: radial-gradient(circle, #921847 0%, transparent 80%);
             margin: 8px auto 0 auto;
@@ -120,15 +120,15 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 16px;
+            gap: 18px;
             width: 100%;
             flex-grow: 1;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        /* Grid Item Card Styling matching image */
+        /* Grid Item Card Styling */
         .card {
-            border-radius: 24px;
+            border-radius: 26px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -141,29 +141,23 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
             position: relative;
         }
 
         .card span {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-top: 8px;
             display: block;
             opacity: 0.9;
         }
 
-        /* Unique Color & Class Setups */
-        .card-memories { background-color: var(--color-memories); top: 0; left: 0; }
-        .card-songs { background-color: var(--color-songs); top: 0; right: 0; }
-        .card-letter { background-color: var(--color-letter); bottom: 0; left: 0; }
-        .card-secret { background-color: var(--color-secret); bottom: 0; right: 0; color: #ccb160; }
-
-        /* Exploding/Dividing Screen Animation Trigger */
-        .phone-container.split .card-memories { transform: translate(-120%, -120%); opacity: 0; }
-        .phone-container.split .card-songs { transform: translate(120%, -120%); opacity: 0; }
-        .phone-container.split .card-letter { transform: translate(-120%, 120%); opacity: 0; }
-        .phone-container.split .card-secret { transform: translate(120%, 120%); opacity: 0; }
+        /* Unique Color Setups */
+        .card-memories { background-color: var(--color-memories); }
+        .card-songs { background-color: var(--color-songs); }
+        .card-letter { background-color: var(--color-letter); }
+        .card-secret { background-color: var(--color-secret); color: #ccb160; }
 
         /* --- STAGE 3: Inner Feature Pages --- */
         .panel-page {
@@ -176,7 +170,7 @@
             z-index: 25;
             display: none;
             flex-direction: column;
-            padding: 70px 24px 30px 24px;
+            padding: 80px 24px 35px 24px;
         }
 
         .panel-page.view-active {
@@ -185,16 +179,16 @@
 
         .panel-title {
             font-family: 'Caveat', cursive;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             color: var(--text-dark);
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .dismiss-btn {
             position: absolute;
-            top: 25px;
-            left: 20px;
+            top: 30px;
+            left: 22px;
             background: none;
             border: none;
             font-size: 1.1rem;
@@ -206,8 +200,8 @@
         /* Section A: Swipeable Photo Gallery Setup */
         .swiper {
             width: 100%;
-            height: 80%;
-            border-radius: 20px;
+            height: 82%;
+            border-radius: 24px;
         }
 
         .swiper-slide {
@@ -215,8 +209,8 @@
             justify-content: center;
             align-items: center;
             background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-radius: 24px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.05);
             overflow: hidden;
         }
 
@@ -250,59 +244,59 @@
             color: var(--text-dark);
             font-weight: 600;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.1s;
         }
 
         .track-card:active {
             background: #f0f0f0;
+            transform: scale(0.98);
         }
 
         .track-icon {
-            color: #55acee;
+            color: #f9896b;
             font-size: 1.2rem;
         }
 
         /* Section C: Private Letter Frame */
         .letter-frame {
             width: 100%;
-            height: 82%;
+            height: 84%;
             overflow-y: auto;
-            border-radius: 20px;
+            border-radius: 24px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.05);
         }
 
         .letter-frame img {
             width: 100%;
             display: block;
-            border-radius: 20px;
+            border-radius: 24px;
         }
 
-                /* --- BUTTERFLY EFFECT --- */
-        .butterfly {
+        /* --- HEART ENGINE PARTICLES --- */
+        .heart-particle {
             position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: #ff4d6d;
-            border-radius: 50% 50% 0 50%;
-            transform: rotate(-45deg);
             pointer-events: none;
+            font-size: 1.5rem;
             z-index: 100;
-            opacity: 0.8;
+            user-select: none;
+            animation: floatUp 2s ease-out forwards;
         }
-        .butterfly::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background-color: #ff4d6d;
-            border-radius: 50% 50% 50% 0;
-            top: -6px;
-            left: 6px;
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.5) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-850px) scale(1.3) rotate(var(--rot));
+                opacity: 0;
+            }
         }
-	/* Updated Trivia Styles */
+
+        /* Trivia Styles */
         .quiz-container {
             width: 100%;
-            height: 80%;
+            height: 82%;
             position: relative;
             display: flex;
             justify-content: center;
@@ -312,8 +306,8 @@
         .quiz-card {
             background: white;
             width: 100%;
-            padding: 25px 20px;
-            border-radius: 24px;
+            padding: 28px 22px;
+            border-radius: 26px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.04);
             display: none;
             flex-direction: column;
@@ -330,15 +324,15 @@
             color: #ccb160;
             font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .quiz-question {
             font-size: 1.15rem;
             color: var(--text-dark);
             font-weight: 600;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            margin-bottom: 22px;
+            line-height: 1.45;
         }
 
         .quiz-options {
@@ -350,7 +344,7 @@
         .opt-btn {
             background: #fffbf0;
             border: 1.5px solid #fbe69d;
-            padding: 14px;
+            padding: 15px;
             border-radius: 14px;
             font-size: 0.95rem;
             color: var(--text-dark);
@@ -360,13 +354,11 @@
             transition: all 0.2s ease;
         }
 
-        /* Subtle visual selection feedback before moving forward */
         .opt-btn.selected-glow {
             background-color: #e3f2fd !important;
             border-color: #90caf9 !important;
         }
 
-        /* Big Final Interactive Checking Button */
         .check-answers-btn {
             background: linear-gradient(135deg, #f9896b 0%, #ff4d6d 100%);
             border: none;
@@ -390,12 +382,12 @@
             margin-bottom: 15px;
         }
 
-        /* Confetti Elements */
+        /* Confetti Elements falling down from the top */
         .confetti-piece {
             position: absolute;
             width: 10px;
             height: 10px;
-            z-index: 99;
+            z-index: 120; /* Keep it on top of the elements */
             pointer-events: none;
             animation: rainConfetti 3.5s linear forwards;
         }
@@ -406,7 +398,7 @@
                 opacity: 1;
             }
             100% {
-                transform: translateY(830px) rotate(720deg);
+                transform: translateY(860px) rotate(720deg);
                 opacity: 0;
             }
         }
@@ -421,12 +413,14 @@
 
     <div class="phone-container" id="appFrame">
         
+        <!-- Welcome Screen -->
         <div class="welcome-screen" id="welcomePortal" onclick="handleScreenUnlock(event)">
             <div class="welcome-title">Happy birthday Sarath ❤️</div>
             <div class="welcome-subtitle">Touch to open</div>
         </div>
 
-        <div class="dashboard" onclick="spawnHeartsWave(event)">
+        <!-- Dashboard Panel -->
+        <div class="dashboard">
             <div class="dashboard-header">
                 <h1>Happy Birthday<br>Sarath!</h1>
                 <div class="header-divider"></div>
@@ -448,6 +442,7 @@
             </div>
         </div>
 
+        <!-- Section A: Memories Panel -->
         <div class="panel-page" id="memoriesUI">
             <button class="dismiss-btn" onclick="hideSection('memoriesUI')">← Back</button>
             <h2 class="panel-title">Our Memories</h2>
@@ -459,47 +454,49 @@
                     <div class="swiper-slide"><img src="https://i.ibb.co/pv8384W4/IMG-20240116-WA0001.jpg" alt="Our Day 3"></div>
                     <div class="swiper-slide"><img src="https://i.ibb.co/KchKxw8X/IMG-20240128-WA0006.jpg" alt="Our Day 4"></div>
                     <div class="swiper-slide"><img src="https://i.ibb.co/XkzPFJjG/IMG-20240129-WA0218.jpg" alt="Our Day 5"></div>
-		    <div class="swiper-slide"><img src="https://i.ibb.co/Z6sy6x5J/IMG-20240131-WA0009.jpg" alt="Our Day 1"></div>
-                    <div class="swiper-slide"><img src="https://i.ibb.co/Q79DXb4s/IMG-20240630-WA0388.jpg" alt="Our Day 2"></div>
-                    <div class="swiper-slide"><img src="https://i.ibb.co/XfqHnynb/IMG-20240808-WA0073.jpg" alt="Our Day 3"></div>
-                    <div class="swiper-slide"><img src="
-https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 4"></div>
-                    <div class="swiper-slide"><img src="https://i.ibb.co/F45Sq33x/IMG-20240810-WA0024.jpg" alt="Our Day 5"></div>
-                    </div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/Z6sy6x5J/IMG-20240131-WA0009.jpg" alt="Our Day 6"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/Q79DXb4s/IMG-20240630-WA0388.jpg" alt="Our Day 7"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/XfqHnynb/IMG-20240808-WA0073.jpg" alt="Our Day 8"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 9"></div>
+                    <div class="swiper-slide"><img src="https://i.ibb.co/F45Sq33x/IMG-20240810-WA0024.jpg" alt="Our Day 10"></div>
+                </div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
 
+        <!-- Section B: Playlists Panel -->
         <div class="panel-page" id="songsUI">
             <button class="dismiss-btn" onclick="hideSection('songsUI')">← Back</button>
             <h2 class="panel-title">Songs For You</h2>
             <div class="track-scroller">
-                <a href="https://www.youtube.com/watch?v=Il7Nv270zNk&list=RDIl7Nv270zNk&start_radio=1" target="_blank" class="song-item">
-                    <span>🎵 Cold/mess </span><span>▶</span>
+                <a href="https://www.youtube.com/watch?v=Il7Nv270zNk&list=RDIl7Nv270zNk&start_radio=1" target="_blank" class="track-card">
+                    <span>🎵 Cold/mess </span><span class="track-icon">▶</span>
                 </a>
-                <a href="https://www.youtube.com/watch?v=dWqb-WqbGh8&list=RDdWqb-WqbGh8&start_radio=1" target="_blank" class="song-item">
-                    <span>🎵 O Sanam </span><span>▶</span>
+                <a href="https://www.youtube.com/watch?v=dWqb-WqbGh8&list=RDdWqb-WqbGh8&start_radio=1" target="_blank" class="track-card">
+                    <span>🎵 O Sanam </span><span class="track-icon">▶</span>
                 </a>
-                <a href="https://www.youtube.com/watch?v=LUgpPmj6nR8&list=RDLUgpPmj6nR8&start_radio=1" target="_blank" class="song-item">
-                    <span>🎵 Khat</span><span>▶</span>
+                <a href="https://www.youtube.com/watch?v=LUgpPmj6nR8&list=RDLUgpPmj6nR8&start_radio=1" target="_blank" class="track-card">
+                    <span>🎵 Khat</span><span class="track-icon">▶</span>
                 </a>
-		<a href="https://www.youtube.com/watch?v=CbvjhmFVMvA&list=RDCbvjhmFVMvA&start_radio=1" target="_blank" class="song-item">
-                    <span>🎵 Thinking of you </span><span>▶</span>
-		</a>
-		<a href="https://www.youtube.com/watch?v=kz0kbFmB7FU&list=RDkz0kbFmB7FU&start_radio=1" target="_blank" class="song-item">
-                    <span>🎵 The last letter </span><span>▶</span>
-		</a>
+                <a href="https://www.youtube.com/watch?v=CbvjhmFVMvA&list=RDCbvjhmFVMvA&start_radio=1" target="_blank" class="track-card">
+                    <span>🎵 Thinking of you </span><span class="track-icon">▶</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=kz0kbFmB7FU&list=RDkz0kbFmB7FU&start_radio=1" target="_blank" class="track-card">
+                    <span>🎵 The last letter </span><span class="track-icon">▶</span>
+                </a>
             </div>
         </div>
 
+        <!-- Section C: Private Letter Panel -->
         <div class="panel-page" id="letterUI">
             <button class="dismiss-btn" onclick="hideSection('letterUI')">← Back</button>
             <h2 class="panel-title">A Letter For You</h2>
             <div class="letter-frame">
-                <img src=https://i.ibb.co/PZ2Ynt7m/Kuttan-page-0001.jpg" alt="Personal Birthday Letter">
+                <img src="https://i.ibb.co/PZ2Ynt7m/Kuttan-page-0001.jpg" alt="Personal Birthday Letter">
             </div>
         </div>
 
+        <!-- Section D: Quiz Engine Panel -->
         <div class="panel-page" id="secretUI">
             <button class="dismiss-btn" onclick="hideSection('secretUI')">← Back</button>
             <h2 class="panel-title">Our Trivia Quiz 🧩</h2>
@@ -570,9 +567,9 @@ https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 4"></div>
                 </div>
             </div>
         </div>
+    </div>
 
     <script>
-        // Initialize Swiper engine with smooth swipe settings
         const swiper = new Swiper('.mainSwiper', {
             loop: false,
             pagination: {
@@ -581,45 +578,56 @@ https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 4"></div>
             },
         });
 
-        // Trigger wave burst transition and remove welcome veil
+        // Trigger background rain automatically as soon as DOM loads
+        window.addEventListener('DOMContentLoaded', () => {
+            triggerBackgroundHeartRain();
+        });
+
         function handleScreenUnlock(e) {
             e.stopPropagation();
             const portal = document.getElementById('welcomePortal');
             
-            // Generate a heavy romantic burst of floating hearts up the viewport
-            for (let i = 0; i < 24; i++) {
-                setTimeout(() => {
-                    generateHeartNode(e.clientX || 180, e.clientY || 400);
-                }, i * 40);
-            }
-
             portal.style.opacity = '0';
             setTimeout(() => { portal.style.display = 'none'; }, 600);
         }
 
-        // Tap tracking mechanism anywhere on screen triggers heart wave generator
-        function spawnHeartsWave(e) {
-            const bounds = document.getElementById('appFrame').getBoundingClientRect();
-            const localX = e.clientX - bounds.left;
-            const localY = e.clientY - bounds.top;
-
-            // Generate a multi-directional heart stream
-            for(let i = 0; i < 6; i++) {
-                generateHeartNode(localX, localY);
+        function triggerBackgroundHeartRain() {
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const randomX = Math.random() * 360 + 15;
+                    const bottomY = 810 + (Math.random() * 30); 
+                    generateHeartNode(randomX, bottomY);
+                }, i * 25);
             }
         }
 
-        // Custom particle engine building and animating procedural floating heart nodes
+        function launchSection(targetId) {
+            document.getElementById(targetId).classList.add('view-active');
+            triggerSectionSectionBurst();
+        }
+
+        function hideSection(targetId) {
+            document.getElementById(targetId).classList.remove('view-active');
+        }
+
+        function triggerSectionSectionBurst() {
+            for (let i = 0; i < 24; i++) {
+                setTimeout(() => {
+                    const randomX = Math.random() * 360 + 15;
+                    const bottomY = 810 + (Math.random() * 30);
+                    generateHeartNode(randomX, bottomY);
+                }, i * 20);
+            }
+        }
+
         function generateHeartNode(xpos, ypos) {
             const frame = document.getElementById('appFrame');
             const heart = document.createElement('div');
             heart.classList.add('heart-particle');
             
-            // Variation pool for theme-accurate color presentation
             const heartTypes = ['❤️', '💖', '💗', '💓', '💕'];
             heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
             
-            // Random styling spreads for fluid paths
             const driftOffset = (Math.random() * 60 - 30);
             const rotationOffset = (Math.random() * 90 - 45) + 'deg';
             
@@ -628,22 +636,10 @@ https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 4"></div>
             heart.style.setProperty('--rot', rotationOffset);
             
             frame.appendChild(heart);
-            
-            // Automatic DOM garbage collection clean up routines
-            setTimeout(() => { heart.remove(); }, 2800);
+            setTimeout(() => { heart.remove(); }, 2000);
         }
 
-        // Feature Navigation Engine
-        function launchSection(targetId) {
-            document.getElementById(targetId).classList.add('view-active');
-        }
-
-        function hideSection(targetId) {
-            document.getElementById(targetId).classList.remove('view-active');
-        }
-	// Tracking player advancement flows
         function selectAnswer(button, currentQuestionId) {
-            // Highlight chosen item briefly
             button.classList.add('selected-glow');
 
             setTimeout(() => {
@@ -663,7 +659,7 @@ https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 4"></div>
             }, 400);
         }
 
-        // The Grand Reveal: Creates heavy streams of random colored falling confetti shapes
+        // Updated Confetti engine to strictly generate and fall from the top boundary down to the base
         function triggerConfettiReveal() {
             document.getElementById('qVerify').classList.remove('active-q');
             document.getElementById('quizWin').classList.add('active-q');
@@ -676,15 +672,16 @@ https://i.ibb.co/gMBszzp5/Snapchat-1376587924.jpg" alt="Our Day 4"></div>
                     const piece = document.createElement('div');
                     piece.classList.add('confetti-piece');
                     
-                    // Corrected color randomizer logic
+                    // Positions random distribution horizontally
                     piece.style.left = Math.random() * 365 + 'px';
+                    // Sets standard negative starting height above screen view bounds
+                    piece.style.top = '-20px'; 
                     piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                     piece.style.width = (Math.random() * 6 + 6) + 'px';
                     piece.style.height = (Math.random() * 12 + 6) + 'px';
                     piece.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
                     
                     container.appendChild(piece);
-                    
                     setTimeout(() => { piece.remove(); }, 3500);
                 }, i * 15);
             }
